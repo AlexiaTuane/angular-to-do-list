@@ -1,0 +1,45 @@
+<div class="container py-5">
+  <!-- Cadastro de Tarefa -->
+  <div class="mb-4 d-flex justify-content-center">
+    <form class="d-flex justify-content-between align-items-center" style="max-width: 500px; width: 100%;">
+      <div class="form-group mb-0 flex-grow-1 mr-2">
+        <input for="taskName" type="text" id="taskName" name="taskName" placeholder="Adicione aqui a nova tarefa" [(ngModel)]="taskName" class="form-control" required>
+      </div>
+      <button type="button" class="btn" (click)="addTask()" style="background-color: #705bf4; color: white;">Adicionar</button>
+    </form>
+  </div>
+
+  <!-- Tarefas Abertas -->
+  <div class="mt-4">
+    <table class="table table-striped">
+      <thead class="thead-ligth">
+        <tr>
+          <th class="text-center">Tarefa</th>
+          <th class="text-center">Data</th>
+          <th class="text-center">Status</th>
+          <th class="text-center">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of taskService.getTasks()">
+          <td class="text-center">{{ task.name }}</td>
+          <td class="text-center">{{ formatarData(task.date) }}</td>
+          <td class="text-center">{{ task.status }}</td>
+          <td class="text-center">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Ações
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#" (click)="editTask(task)">Editar</a>
+                <a class="dropdown-item" href="#" (click)="deleteTask(task)">Excluir</a>
+                <a class="dropdown-item" href="#" (click)="suspendTask(task)">Suspender</a>
+                <a class="dropdown-item" href="#" (click)="completeTask(task)">Finalizar</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

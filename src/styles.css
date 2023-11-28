@@ -1,0 +1,57 @@
+/* styles.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Escolha uma fonte adequada para um app de to-do list */
+}
+
+.container {
+  background-color: #dcd8eb;
+  padding: 20px;
+}
+
+.navbarNav-menu {
+  background-color: #4c34ac; /* Cor de fundo do menu */
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.navbar-brand {
+  color: #DEE5FB; /* Cor do texto do nome "To-Do List" */
+  font-size: 24px; /* Tamanho da fonte do nome "To-Do List" */
+  margin-left: 2%;
+}
+
+.navbar-toggler-icon {
+  background-color: #5740ed; /* Cor do ícone de menu para telas menores */
+}
+
+.nav-link {
+  color: #445477; /* Cor do texto dos itens do menu */
+}
+
+.nav-link:hover {
+  background-color: #705bf4; /* Cor de fundo ao passar o mouse sobre os itens do menu */
+  color: #445477; /* Cor do texto ao passar o mouse sobre os itens do menu */
+  border-radius: 10px;
+}
+
+/* Adiciona espaçamento e centraliza o conteúdo do menu */
+.navbar-collapse {
+  justify-content: center;
+}
+
+/* Ajusta o menu para telas menores */
+@media (max-width: 768px) {
+  .navbarNav-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar-toggler-icon {
+    margin-right: 2px;
+  }
+}
